@@ -64,7 +64,7 @@ public class Transition {
 				sb.append("\r\n          Runtime.getRuntime().halt(0);//in the light version the system is terminated upon a violation");
 			else if (a.destination.type.equals(State.Type.ACCEPTING))
 			{
-				sb.append("\r\n           _killThis(); //discard this automaton since an accepting state has been reached");
+				sb.append("\r\n           //_killThis(); //discard this automaton since an accepting state has been reached");
 			}
 			sb.append("\r\n		}");
 		}
