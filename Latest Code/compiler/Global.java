@@ -589,9 +589,9 @@ public class Global extends Compiler{
 			"\r\n}");
 			cl.append("\r\nelse\r\n{");
 
-			cl.append("\r\n _inst.initialisation();");
+			cl.append("\r\n _cls_"+name+id+"_instances.put(_inst,_inst);");
 
-			cl.append("\r\n _cls_"+name+id+"_instances.put(_inst,_inst);" +
+			cl.append("\r\n _inst.initialisation();" +
 					"\r\n return _inst;" +
 			"\r\n}");
 		}
