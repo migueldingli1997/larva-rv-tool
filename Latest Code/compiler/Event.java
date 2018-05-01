@@ -865,12 +865,13 @@ public class Event extends Trigger{
 //				else 
 					if (this.type.equals(EventType.clock) || this.type.equals(EventType.clockDynamic))
 				{
-					sb.append("\r\nsynchronized(_c){" +
-							"\r\n if (_c != null && _c._inst != null) {");
+					sb.append("\r\nsynchronized(_c){");
 					//for (Global h:g.getRecursiveForeaches(new ArrayList<Global>()))
 					//	if (h.equals(g))
+							sb.append("\r\n if (_c != null && _c._inst != null) {");
 							sb.append("\r\n_c._inst._call(thisJoinPoint.getSignature().toString()" + s.toString()+");");
 					//	else
+							sb.append("\r\n } if (_c != null && _c._inst != null) {");
 							sb.append("\r\n_c._inst._call_all_filtered(thisJoinPoint.getSignature().toString()"+s.toString()+");");
 					sb.append("\r\n}\r\n}");
 				}
