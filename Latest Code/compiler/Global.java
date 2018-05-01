@@ -535,16 +535,16 @@ public class Global extends Compiler{
 		
 		cl.append("\r\n\r\npublic void initialisation() {");
 		
+		for (Variable v:localVariables.values())
+			if (v.getVariableType().equals("Clock"))
+				cl.append("\r\n   " + v.getVariableName() + ".reset();");
+
 		for (Property p : logics.values())
 		{
 			ArrayList<Token> code = p.states.starting.get(0).code;
 			if (code != null)
 				cl.append("\r\n\r\n" + Global.redirectOutput(Global.handleVariableReplacement(code,this)));
 		}
-		
-		for (Variable v:localVariables.values())
-			if (v.getVariableType().equals("Clock"))
-				cl.append("\r\n   " + v.getVariableName() + ".reset();");
 		
 		cl.append("\r\n}");
 
